@@ -1,0 +1,111 @@
+	body{
+	margin:0;
+	overflow:hidden;
+	}
+
+	.homeScreen {
+	background-image: url("../Images/gameBackground.jpg");
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position:relative;
+	}
+	.currentScore , .highScore{
+	width:175px;
+	height: 50px;
+	position:absolute;
+	top:60%;
+	left:80%;
+	background-color: @color_sg_black;
+	color: @color_sg_white; 
+	opacity:0.6;
+	font-style:italic;
+	p {
+	font-size: 18px;
+	display: block;
+	width: 70%;
+	margin:0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	span {
+	font-size : 17px;
+	}
+	}
+	}
+	.currentScore{
+	p{
+	text-align: center;
+	}
+	}
+	.highScore {
+	top:40%; 
+	}
+	#startBtn {
+	top:45%;
+	left:50%;
+	width:70px;
+	height:70px;
+	border:none;
+	border-radius:50%;
+	background-color: @color_sg_orange;
+	transition:all 1s;
+	color:#fff;
+	cursor:pointer;
+	transform: translate(-85%, -85%);
+	position:absolute;
+	.rightArrow {
+	width: 0;
+	height: 0;
+	bottom:27%;
+	right:28%;
+	position:absolute;
+	border-top: 15px solid transparent;
+	border-left: 21px solid @color_sg_white;
+	border-bottom: 15px solid transparent;
+	}
+	}
+
+	.hideHomeScreen{
+	-webkit-filter: sepia(76%);  /* Safari 6.0 - 9.0 */
+	filter: sepia(76%);
+	transition: all 2s;
+	}
+
+	#startBtn.pauseBtn {
+	top:85%;
+	left:90%;
+	.rightArrow {
+	width:8px;
+	height:33px;
+	bottom:25%;
+	right:36%;
+	border-right: 6px solid @color_sg_white;
+	border-top: 0px solid transparent;
+	border-left: 6px solid @color_sg_white;
+	border-bottom: 0px solid transparent;
+	}
+	}
+
+	.playArea,
+	.foodWrapper {
+	display:none;
+	/*background-color:rgba(0,0,0,0.3);*/
+	top:0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	}
+	#scoreDisplay {
+	top:43%;
+	left:48%;
+	font-size:25px;
+	position:fixed;
+	opacity:0.5;
+	z-index:99;
+	color:@color_sg_saddlebrown;
+	}
+	.displayArea {
+	display:block;
+	}

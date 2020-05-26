@@ -1,0 +1,158 @@
+@import 'colors';
+@import 'controls';
+@import 'layout';
+
+@keyframes rotateAnim {
+0% {
+top: 14%;
+right: 24px;
+}
+25% {
+top: 26%;
+right: 23px;
+}
+50% {
+top: 22%;
+right: 26px;
+}
+75% {
+top: 14%;
+right: 27px;
+}
+100% {
+top: 14%;
+right: 24px;
+}
+}
+@keyframes openMouth {
+0% {
+transform: rotate(10deg);
+}
+50% {
+transform: rotate(-20deg);
+}
+100% {
+transform: rotate(10deg);
+}
+}
+.snakeHead {
+width: 30px;
+height: 30px;
+top:50%;
+background-color: @color_sg_black;
+border-radius: 0 80% 20% 2%;
+position: relative;
+display: inline-block;
+overflow: hidden;
+transition: all 99ms;
+transform: translate3d(0,0,0);
+&:before {
+content: '';
+height: 8px;
+width: 8px;
+border-radius: 0 65% 0 63%;
+background-color: @snake_eye;
+display: block;
+position: absolute;
+right: 22px;
+top: 14%;
+}
+&:after {
+content: '';
+height: 4px;
+width: 4px;
+background-color: @color_sg_black;
+position: absolute;
+display: block;
+top: 16%;
+right: 22px;
+border-radius: 50%;
+animation: rotateAnim 2s infinite both;
+}
+}
+.mouth {
+position: absolute;
+bottom: 7%;
+right: -4px;
+width: 29px;
+overflow: hidden;
+border-radius: 30%;
+background-color: @bg_color_transparent;
+height: 12px;
+transform: rotate(17deg);
+&:after {
+content: '';
+width: 200%;
+height: 20px;
+display: block;
+background-color: @color_sg_white;
+position: absolute;
+top: 9px;
+border-radius: 0;
+transform: rotate(10deg);
+left: 0px;
+transform-origin: 0;
+}
+
+&.eat {
+&:after {
+animation: openMouth 0.2s infinite both;
+background-image: url("../Images/gameBackground.jpg");
+filter: sepia(76%);
+background-attachment: fixed;
+}
+}
+}
+
+.leftFaceDirection {
+transform: scaleX(-1);
+}
+.upFaceDirection {
+transform: rotate(-90deg);
+transition: left 0.1s;
+}
+.downFaceDirection {
+transform: rotate(90deg);
+transition: bottom 0.1s;
+}
+.rightFaceDirection {
+transform: none;
+}
+.food {
+display:block;
+background-image:url("../images/frog.gif");
+background-size:cover;
+width:50px;
+height:30px;
+position:absolute;
+}
+.tail {
+width:30px;
+height:30px;
+position:absolute;
+background-color: @color_sg_black;
+border-radius:50%;
+//transition: all 0.1s;
+}
+.animated {
+animation-duration: 0.4s !important;
+}
+
+@keyframes blast {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+75% {
+transform: scale(2);
+}
+100% {
+transform: scale(1);
+opacity: 0;
+}
+}
+.blast {
+background-image: url("../images/blast.gif");
+background-size: cover;
+animation: blast 250ms forwards;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Snake Game Using JavaScript</title>
+	<link rel="stylesheet/less" type="text/css" href="less/snakegame.Less">
+	<link rel="stylesheet" type="text/css" href="third-party/animate.css">	
+</head>
+
+<body>
+	<div class="homeScreen">
+	</div>
+	<div class="playArea">
+		<div class="snakeHead">
+			<div class="mouth"></div>
+		</div>
+		<div id="scoreDisplay"></div>
+	</div>
+	<div class="foodWrapper">		
+	</div>
+	<button id="startBtn"><i class="rightArrow"></i></button>
+	<div class="highScore">
+		<p>High Score : <span id="highScoreCount">0</span></p>
+	</div>
+	<div class="currentScore">
+		<p>Score : <span id="scorecount">0</span></p>
+	</div>
+	<script type="text/javascript" src="scripts/snakegame.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</body>
+
+</html>
