@@ -130,17 +130,17 @@ var snakeGame = function(){
 		self.scorecount.innerHTML = self.score;
 		// To display score while playing
 		self.scoreDisplay.innerHTML = self.score;
-		/* To get the highscore value from local server */
+		/* To get the highscore value from local server */		
 		if (typeof(Storage) !== "undefined") {	
 			if( parseInt(self.scorecount.innerHTML) > parseInt(self.highScoreCount.innerHTML)) {
 				self.highScoreCount.innerHTML = self.scorecount.innerHTML;
 				localStorage.setItem("highScore", self.highScoreCount.innerHTML);
-			} else {
+			} else {				
 				return self.highScoreCount.innerHTML ;
 			}
 			self.TopScore = localStorage.getItem("highScore");
 		}
-		self.highScoreCount.innerHTML = self.TopScore;
+		self.highScoreCount.innerHTML = self.TopScore;		
 	}
 	/* calculation for catching the food*/
 	self.isBetween = function(num, a, b) {
@@ -174,7 +174,7 @@ var snakeGame = function(){
 				self.blastStarted = false;
 				self.reSet();
 			}
-		}
+		}		
 	}
 	/* Moving the snake in a direction */
 	self.moveTo = function(dir){
@@ -330,7 +330,8 @@ var snakeGame = function(){
 	}
 	self.init = function(){
 		/* highscore will be stored in local so that it wont become 0 when we refresh or restart the game */
-		self.highScoreCount.innerHTML = localStorage.getItem("highScore");
+		var highScore = localStorage.getItem("highScore");
+		self.highScoreCount.innerHTML = highScore ? highScore : 0;		
 		/* calling the global  variables */
 		self.initVariables();
 		/* calling the bindevents function */
